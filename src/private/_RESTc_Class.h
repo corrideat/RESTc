@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 #include <stdarg.h>
-#include <unistd.h>
+#include <stddef.h>
 #include "bool.h"
 #include "RESTc_Class.h"
 

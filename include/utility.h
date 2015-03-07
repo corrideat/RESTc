@@ -21,9 +21,18 @@
 */
 
 #pragma once
-#ifndef UTIstrlenITY_H
-#define UTIstrlenITY_H
+#ifndef UTILITY_H
+#define UTILITY_H
 
-#define UNUSED(x) x __attribute__((unused))
+#ifdef UNUSED
+#elif defined(__GNUC__) && ((__GNUC__ > 2) || (__GNUC__ == 2 && __GNUC_MINOR__ > 4))
+#define UNUSED(x) __attribute__((unused)) UNUSED__ ## x
+#elif defined(__LCLINT__)
+#define UNUSED(x) /*@unused@*/ UNUSED__ ## x
+#elif defined(_MSC_VER)
+#define UNUSED(x) __pragma(warning(suppress: 4100 4101)) UNUSED__ ## x
+#else
+#define UNUSED(x) x
+#endif
 
 #endif
