@@ -1,0 +1,24 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+PROJECT(RESTc)
+
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
+INCLUDE(CheckIncludeFile)
+
+CHECK_INCLUDE_FILE(stdbool.h HAVE_STDBOOL_H)
+CHECK_INCLUDE_FILE(stdint.h HAVE_STDBOOL_H)
+
+#set(CMAKE_THREAD_PREFER_PTHREAD true)
+
+#find_package(GLIB REQUIRED)
+#find_package(Threads REQUIRED)
+FIND_PACKAGE(OpenSSL REQUIRED)
+# Need: fcgi
+
+SET(CMAKE_C_FLAGS "-pedantic-errors -std=c99 -Wall -Wextra -Wstrict-aliasing=2 -DDEBUG -g -ggdb -fstrict-aliasing -O1")
+
+ENABLE_TESTING()
+
+INCLUDE_DIRECTORIES(include vendor)
+
+ADD_SUBDIRECTORY(src)
+ADD_SUBDIRECTORY(test)
