@@ -5,6 +5,7 @@ ADD_LIBRARY(RESTc STATIC SHARED
             RESTc_Authenticator.c
             RESTc_HashTable.c
             RESTc_JSONProcessor.c
+            RESTc_OAuth2Authenticator.c
             RESTc_OAuth2Service.c
             RESTc_Processor.c
             RESTc_ResponseStub.c

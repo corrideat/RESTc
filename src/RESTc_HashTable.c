@@ -30,6 +30,7 @@
 
 static void* constructor(void * const _self, va_list * const app);
 static void* destructor(void * const _self);
+
 static void const * * getAll(void const * const _self);
 static size_t getCount(void const * const _self);
 static void insert_helper(void * const element, void ** const buckets, size_t const n_buckets);
